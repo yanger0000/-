@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function demo() {
+        this.aa = 123;
+    }
+    console.log(demo.prototype.constructor === demo);
+    var d = new demo();
+     console.log(d.aa) ;
+     if(JSON.stringify(demo.prototype) ==='{}'){
+       alert('aa');
+     }
+</script>
+</body>
+</html>
