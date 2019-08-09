@@ -24,23 +24,23 @@
 //   2.把内部函数当作返回值给外部函数
 //例子
 //把内部函数当作返回值给外部函数
-//  function fn() {
-//  debugger
-//      var a = 1;
-//      return function fn1() {
-//      a++
-//          console.log(a);
-//      }
-//  }
-//  var f = new fn();
-//  f();
+  function fn() {
+  debugger
+      var a = 1;
+      return function fn1() {
+      a++
+          console.log(a);
+      }
+  }
+  var f = new fn();
+  f();
 //  内部函数闭包里面保存的是外部函数调用传入的实参
-//   function fn(msg) {
-//       setTimeout(function () {
-//           console.log(msg)
-//       },1000)
-//   }
-//   fn('我是实参')
+   function fn(msg) {
+       setTimeout(function () {
+           console.log(msg)
+       },1000)
+   }
+   fn('我是实参')
 
 </script>
 </body>
