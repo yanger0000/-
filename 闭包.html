@@ -24,24 +24,56 @@
 //   2.把内部函数当作返回值给外部函数
 //例子
 //把内部函数当作返回值给外部函数
-  function fn() {
-  debugger
-      var a = 1;
-      return function fn1() {
-      a++
-          console.log(a);
-      }
-  }
-  var f = new fn();
-  f();
+//  function fn() {
+//  debugger
+//      var a = 1;
+//      return function fn1() {
+//      a++
+//          console.log(a);
+//      }
+//  }
+//  var f = new fn();
+//  f();
 //  内部函数闭包里面保存的是外部函数调用传入的实参
-   function fn(msg) {
-       setTimeout(function () {
-           console.log(msg)
-       },1000)
-   }
-   fn('我是实参')
+//   function fn(msg) {
+//       setTimeout(function () {
+//           console.log(msg)
+//       },1000)
+//   }
+//   fn('我是实参')
+//面试题
 
+//function fun(n, o) {
+//    console.log(o)
+//    return {
+//        fun: function (m) {
+//            return fun(m, n);
+//        }
+//    }
+//}
+//
+////var a = fun(0).fun(1)
+////a.fun(2) // 0
+////a.fun(3) //undefined,
+//var b = fun(0).fun(1).fun(2).fun(3).fun(50).fun(25) //undefined
+//面试题2
+function Foo() {
+    getName = function () { alert (1); };
+    return this;
+}
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+
+var getName = function () { alert (4);};
+function getName() { alert (5);}
+//请写出以下输出结果：
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
 </script>
 </body>
 </html>
